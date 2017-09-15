@@ -3,9 +3,18 @@
 ! ------------------------------------------------------------------------------
 rofi.color-enabled:     true
 rofi.separator-style:   dash
+rofi.hide-scrollbar:    true
+rofi.lines:             5
+rofi.eh:                2
+rofi.width:             100
+rofi.padding:           100
+rofi.bw:                0
+rofi.font:              System San Francisco Display 18
 
-! State:           'bg',            'fg',           'bgalt',        'hlbg', 'hlfg'
-rofi.color-window: argb:ee002b37,   argb:ee002b37,  argb:ee002b37,  argb:ee002b37, argb:ee002b37
-rofi.color-normal: argb:00002b37,   argb:ee819396,        argb:ee002b37,  #008ed4, #ffffff
-rofi.color-active: argb:ee002b37,   #008ed4,        argb:ee002b37,  #008ed4, #66c6ff
-rofi.color-urgent: argb:ee002b37,   #da4281,        argb:ee002b37,  #008ed4, #890661
+! State:           bg,              fg
+rofi.color-window: argb:ee002b37,   argb:ee002b37
+
+! State:           bg,              fg,             bgalt,          hlbg,       hlfg
+rofi.color-normal: argb:00002b37,   argb:ee819396,  argb:ee002b37,  #008ed4,    #ffffff
+rofi.color-active: argb:ee002b37,   #008ed4,        argb:ee002b37,  #008ed4,    #66c6ff
+rofi.color-urgent: argb:ee002b37,   #da4281,        argb:ee002b37,  #008ed4,    #890661
