@@ -18,3 +18,8 @@ rofi.color-window: argb:ee002b37,   argb:ee002b37
 rofi.color-normal: argb:00002b37,   argb:ee819396,  argb:ee002b37,  #008ed4,    #ffffff
 rofi.color-active: argb:ee002b37,   #008ed4,        argb:ee002b37,  #008ed4,    #66c6ff
 rofi.color-urgent: argb:ee002b37,   #da4281,        argb:ee002b37,  #008ed4,    #890661
+
+background: #002b37    
+foreground: #ffffff    
+secondary:  #ffffff 
+active:     #008ed4 
