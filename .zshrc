@@ -2,12 +2,16 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+  export PATH=$PATH:/usr/local/go/bin
+  export GOPATH=/home/kriyss/sources/go
+  export JAVA_HOME=/usr/lib/jvm/java-9-openjdk
   export ZSH=/home/kriyss/.oh-my-zsh
+  export PATH=$PATH:$GOPATH/bin
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
