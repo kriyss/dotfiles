@@ -7,11 +7,29 @@ foreground = ${xrdb:foreground}
 secondary = ${xrdb:secondary}
 underline = ${xrdb:active}
 
+red = ${xrdb:color1}
+green = ${xrdb:color2}
+yellow = ${xrdb:color3}
+blue = ${xrdb:color4}
+magenta = ${xrdb:color5}
+cyan = ${xrdb:color6}
+orange = ${xrdb:color9}
+violet = ${xrdb:color13}
+
+base03= ${xrdb:color15}
+base02= ${xrdb:color0}
+base01= ${xrdb:color10}
+base00= ${xrdb:color11}
+base0= ${xrdb:color12}
+base1= ${xrdb:color14}
+base2= ${xrdb:color7}
+base3= ${xrdb:color15}
+
 
 [bar/parent]
 padding-right = 3
-module-margin = 1
-separator = " | "
+module-margin = 2
+separator = |
 
 font-0 = SFNS Display:size=13;2
 font-1 = FontAwesome:size=13;2
@@ -58,13 +76,13 @@ type = internal/xbacklight
 card = intel_backlight
 format =  <bar> 
 
-bar-foreground-5 = #fdf6e3
-bar-foreground-4 = #eee8d5
-bar-foreground-3 = #93a1a1
-bar-foreground-2 = #839496
-bar-foreground-1 = #657b83
-bar-foreground-0 = #586e75
-bar-empty-foreground = #073642
+bar-foreground-5 = ${colors.base3}
+bar-foreground-4 = ${colors.base2}
+bar-foreground-3 = ${colors.base1}
+bar-foreground-2 = ${colors.base0}
+bar-foreground-1 = ${colors.base00}
+bar-foreground-0 = ${colors.base01}
+bar-empty-foreground = ${colors.base02}
 
 bar-width = 7
 bar-indicator =
@@ -77,7 +95,7 @@ type = internal/battery
 full-at = 99
 battery = BAT0
 adapter = AC
-poll-interval = 5
+poll-interval = 10
 
 format-full = <ramp-capacity> <bar-capacity>
 format-discharging = <ramp-capacity> <bar-capacity>
@@ -98,15 +116,15 @@ ramp-capacity-4 = 
 
 bar-capacity-indicator = 
 bar-capacity-width = 7
-bar-capacity-foreground-0 = #dc322f
-bar-capacity-foreground-1 = #cb4b16
-bar-capacity-foreground-2 = #b58900
-bar-capacity-foreground-3 = #268bd2
-bar-capacity-foreground-4 = #2aa198
-bar-capacity-foreground-5 = #859900
+bar-capacity-foreground-0 = ${colors.red}
+bar-capacity-foreground-1 = ${colors.orange}
+bar-capacity-foreground-2 = ${colors.yellow}
+bar-capacity-foreground-3 = ${colors.blue}
+bar-capacity-foreground-4 = ${colors.cyan}
+bar-capacity-foreground-5 = ${colors.green}
 bar-capacity-fill = ▐
 bar-capacity-empty = ▐
-bar-capacity-empty-foreground = #073642
+bar-capacity-empty-foreground = ${colors.base02}
 
 
 [module/i3]
@@ -164,15 +182,15 @@ label-mounted = %mountpoint%
 
 bar-used-indicator = 
 bar-used-width = 7
-bar-used-foreground-0 = #859900
-bar-used-foreground-1 = #2aa198
-bar-used-foreground-2 = #268bd2
-bar-used-foreground-3 = #b58900
-bar-used-foreground-4 = #cb4b16
-bar-used-foreground-5 = #dc322f
+bar-used-foreground-0 = ${colors.green}
+bar-used-foreground-1 = ${colors.cyan}
+bar-used-foreground-2 = ${colors.blue}
+bar-used-foreground-3 = ${colors.yellow}
+bar-used-foreground-4 = ${colors.orange}
+bar-used-foreground-5 = ${colors.red}
 bar-used-fill = ▐
 bar-used-empty = ▐
-bar-used-empty-foreground = #073642
+bar-used-empty-foreground = ${colors.base02}
 
 
 [module/cpu]
@@ -188,12 +206,12 @@ ramp-coreload-3 = ▅
 ramp-coreload-4 = ▇
 ramp-coreload-5 = █
 
-ramp-coreload-0-foreground = #859900
-ramp-coreload-1-foreground = #2aa198
-ramp-coreload-2-foreground = #268bd2
-ramp-coreload-3-foreground = #b58900
-ramp-coreload-4-foreground = #cb4b16
-ramp-coreload-5-foreground = #dc322f
+ramp-coreload-0-foreground = ${colors.green}
+ramp-coreload-1-foreground = ${colors.cyan}
+ramp-coreload-2-foreground = ${colors.blue}
+ramp-coreload-3-foreground = ${colors.yellow}
+ramp-coreload-4-foreground = ${colors.orange}
+ramp-coreload-5-foreground = ${colors.red}
 
 
 [module/memory]
@@ -204,15 +222,15 @@ label = 
 
 bar-used-indicator = 
 bar-used-width = 7
-bar-used-foreground-0 = #859900
-bar-used-foreground-1 = #2aa198
-bar-used-foreground-2 = #268bd2
-bar-used-foreground-3 = #b58900
-bar-used-foreground-4 = #cb4b16
-bar-used-foreground-5 = #dc322f
+bar-used-foreground-0 = ${colors.green}
+bar-used-foreground-1 = ${colors.cyan}
+bar-used-foreground-2 = ${colors.blue}
+bar-used-foreground-3 = ${colors.yellow}
+bar-used-foreground-4 = ${colors.orange}
+bar-used-foreground-5 = ${colors.red}
 bar-used-fill = ▐
 bar-used-empty = ▐
-bar-used-empty-foreground = #073642
+bar-used-empty-foreground = ${colors.base02}
 
 
 [module/date]
@@ -229,13 +247,13 @@ format-volume =   <bar-volume>
 format-muted =  
 label-volume = %percentage%%
 
-bar-volume-foreground-5 = #fdf6e3
-bar-volume-foreground-4 = #eee8d5
-bar-volume-foreground-3 = #93a1a1
-bar-volume-foreground-2 = #839496
-bar-volume-foreground-1 = #657b83
-bar-volume-foreground-0 = #586e75
-bar-volume-empty-foreground = #073642
+bar-volume-foreground-5 = ${colors.base3}
+bar-volume-foreground-4 = ${colors.base2}
+bar-volume-foreground-3 = ${colors.base1}
+bar-volume-foreground-2 = ${colors.base0}
+bar-volume-foreground-1 = ${colors.base00}
+bar-volume-foreground-0 = ${colors.base01}
+bar-volume-empty-foreground = ${colors.base02}
 
 bar-volume-width = 7
 bar-volume-indicator = 
@@ -262,12 +280,12 @@ ramp-signal-3 = ▅
 ramp-signal-4 = ▇
 ramp-signal-5 = █
 
-ramp-signal-0-foreground = "#dc322f"
-ramp-signal-1-foreground = "#cb4b16"
-ramp-signal-2-foreground = "#b58900"
-ramp-signal-3-foreground = "#268bd2"
-ramp-signal-4-foreground = "#2aa198"
-ramp-signal-5-foreground = "#859900"
+ramp-signal-0-foreground = ${colors.red}
+ramp-signal-1-foreground = ${colors.orange}
+ramp-signal-2-foreground = ${colors.yellow}
+ramp-signal-3-foreground = ${colors.blue}
+ramp-signal-4-foreground = ${colors.cyan}
+ramp-signal-5-foreground = ${colors.green}
 
 
 [module/powermenu]
