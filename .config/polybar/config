@@ -2,6 +2,7 @@
 ; Wiki: https://github.com/jaagr/polybar/wiki
 
 [colors]
+
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
 secondary = ${xrdb:secondary}
@@ -39,8 +40,8 @@ font-3 = "Material Design Icons:size=13;2"
 height = 30
 offset-y = 0
 
-background = ${xrdb:background}
-foreground = ${xrdb:foreground}
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 
 [bar/default]
@@ -140,13 +141,13 @@ format = <label-mode><label-state>
 label-mode-padding = 2
 label-mode-underline = ${colors.underline}
 label-focused = %index%  %icon%
-label-focused-foreground = ${colors.underline}
-label-focused-underline = ${colors.underline}
+label-focused-foreground = ${colors.blue}
+label-focused-underline = ${colors.blue}
 label-focused-padding = 2
 label-unfocused = %index%  %icon%
 label-unfocused-padding = 2
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-underline = ${colors.secondary}
+label-unfocused-underline = ${colors.foreground}
 label-visible = %index%  %icon%
 label-visible-underline = ${colors.foreground}
 label-visible-padding = 2

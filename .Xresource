@@ -11,8 +11,11 @@
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
 
+*secondary:  S_base3 
+*active:     S_blue 
+
 *background:            S_base03
-*foreground:            S_base0
+*foreground:            S_base3
 *fadeColor:             S_base03
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
@@ -79,8 +82,3 @@ rofi.color-window: argb:ee002b37,   argb:ee002b37
 rofi.color-normal: argb:00002b37,   argb:ee819396,  argb:ee002b37,  S_blue,    S_base3
 rofi.color-active: argb:ee002b37,   S_blue,         argb:ee002b37,  S_blue,    S_cyan
 rofi.color-urgent: argb:ee002b37,   #da4281,        argb:ee002b37,  S_blue,    #890661
-
-background:     
-foreground: S_base3    
-secondary:  S_base3 
-active:     S_blue 
