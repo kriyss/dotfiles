@@ -29,7 +29,6 @@
 #define S_blue          #268bd2
 #define S_cyan          #2aa198
 #define S_green         #859900
-
 !! black dark/light
 *color0:                S_base02
 *color8:                S_base03
@@ -61,7 +60,6 @@
 !! white dark/light
 *color7:                S_base2
 *color15:               S_base3
-
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
