@@ -21,7 +21,7 @@ exec_always feh --bg-scale --no-xinerama /home/kriyss/wallpaper.jpg
 # Compton enable i3 transparence
 exec --no-startup-id compton -f -D 2 -cCGb --backend glx --vsync opengl
 
-set $bg-color			#002b37
+set $bg-color			#268bd2
 set $inactive-bg-color		#002b37
 set $text-color			#ffffff
 set $inactive-text-color	#819396
@@ -35,8 +35,8 @@ client.focused_inactive $inactive-bg-color	$inactive-bg-color	$inactive-text-col
 client.unfocused       	$inactive-bg-color      $inactive-bg-color      $inactive-text-color    #00f00 
 client.urgent           $urgent-bg-color	$urgent-bg-color	$text-color		#00f00
 
-new_window pixel 0 
-hide_edge_borders both
+new_window pixel 1 
+hide_edge_borders smart
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -45,10 +45,11 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+a kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+Shift+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
 bindsym $mod+Ctrl+d exec rofi -show combi
 
 # change focus
@@ -96,10 +97,13 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+q focus parent
+#bindsym $mod+q focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# mouse 
+focus_follows_mouse no
 
 set $workspace1 "1 "
 set $workspace2 "2 "
@@ -134,9 +138,9 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

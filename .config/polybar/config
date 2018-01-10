@@ -51,9 +51,9 @@ line-size = 3
 
 padding-left = 0
 
-modules-left = i3
-modules-center = xwindow
-modules-right = gmail date powermenu
+modules-left = i3 xwindow
+#modules-center = 
+modules-right = spotify gmail date powermenu
 
 
 [bar/bottom]
@@ -64,6 +64,17 @@ padding-left = 3
 
 modules-left = volume backlight
 modules-right = cpu filesystem memory battery wireless-network
+
+[module/spotify]
+type = custom/script
+exec-if = /home/kriyss/.config/polybar/spotify.sh --isPlaying
+exec = /home/kriyss/.config/polybar/spotify.sh --title
+click-left = i3-msg workspace 8
+interval = 5
+format=   <label> 
+format-foreground= ${colors.foreground}
+format-underline = ${colors.background}
+label = %output%
 
 [module/gmail]
 type = custom/script
@@ -159,11 +170,11 @@ label-urgent-padding = 2
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 3;
+ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
 ws-icon-5 = 6;
-ws-icon-6 = 7;
+ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
 
@@ -299,10 +310,10 @@ label-separator = " - "
 label-separator-foreground = ${colors.secondary}
 
 menu-0-0 = reboot
-menu-0-0-foreground = ${xrdb:active}
+menu-0-0-foreground = ${colors.blue}
 menu-0-0-exec = reboot
 menu-0-1 = power off
-menu-0-1-foreground = ${xrdb:active}
+menu-0-1-foreground = ${colors.blue}
 menu-0-1-exec = poweroff
 
 
