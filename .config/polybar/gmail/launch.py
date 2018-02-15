@@ -43,7 +43,7 @@ while True:
             print(error_prefix + 'credentials not found', flush=True)
             time.sleep(2)
     except (errors.HttpError, ServerNotFoundError) as error:
-        print(error_prefix + str(error), flush=True)
+        print(error_prefix, flush=True)
         time.sleep(5)
     except client.AccessTokenRefreshError:
         print(error_prefix + 'revoked/expired credentials', flush=True)

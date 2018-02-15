@@ -107,7 +107,7 @@ type = internal/battery
 full-at = 99
 battery = BAT0
 adapter = AC
-poll-interval = 10
+poll-interval = 30
 
 format-full = <ramp-capacity> <bar-capacity>
 format-discharging = <ramp-capacity> <bar-capacity>
@@ -207,7 +207,7 @@ bar-used-empty-foreground = ${colors.base02}
 
 [module/cpu]
 type = internal/cpu
-interval = 2
+interval = 3
 format = <label> <ramp-coreload>
 label = " "
 
@@ -228,7 +228,7 @@ ramp-coreload-5-foreground = ${colors.red}
 
 [module/memory]
 type = internal/memory
-interval = 2
+interval = 3
 format = <label> <bar-used>
 label = 
 
@@ -247,7 +247,7 @@ bar-used-empty-foreground = ${colors.base02}
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 10
 date = %d %B
 time = %H:%M
 label = %date% - %time%

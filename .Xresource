@@ -2,13 +2,13 @@
 ! Solarized Dark Color theme
 ! ------------------------------------------------------------------------------
 
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
+#define S_base03        #002b37
+#define S_base02        #073643
+#define S_base01        #586e76
+#define S_base00        #657b84
+#define S_base0         #839497
+#define S_base1         #93a1a2
+#define S_base2         #eee8d6
 #define S_base3         #fdf6e3
 
 *secondary:  S_base3 
@@ -21,14 +21,14 @@
 *pointerColorBackground:S_base01
 *pointerColorForeground:S_base1
 
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+#define S_yellow        #b58901
+#define S_orange        #cb4b17
+#define S_red           #dc322e
+#define S_magenta       #d33683
+#define S_violet        #6c71c5
+#define S_blue          #268bd3
+#define S_cyan          #2aa199
+#define S_green         #859901
 
 !! black dark/light
 *color0:                S_base02
@@ -79,6 +79,6 @@ rofi.font:              System San Francisco Display 18
 rofi.color-window: argb:ee002b37,   argb:ee002b37
 
 ! State:           bg,              fg,             bgalt,          hlbg,       hlfg
-rofi.color-normal: argb:00002b37,   argb:ee819396,  argb:ee002b37,  S_blue,    S_base3
-rofi.color-active: argb:ee002b37,   S_blue,         argb:ee002b37,  S_blue,    S_cyan
-rofi.color-urgent: argb:ee002b37,   #da4281,        argb:ee002b37,  S_blue,    #890661
+rofi.color-normal: argb:00002b37,   argb:ee819396,  argb:ee002b37,  #268bd2,    #fdf6e3
+rofi.color-active: argb:ee002b37,   #268bd2,         argb:ee002b37,  #268bd2,    #2aa198
+rofi.color-urgent: argb:ee002b37,   #da4281,        argb:ee002b37,  #268bd2,    #890661
