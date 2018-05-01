@@ -2,11 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export PATH=$PATH:/usr/local/go/bin
-  export GOPATH=/home/kriyss/sources/go
-  export JAVA_HOME=/usr/lib/jvm/java-9-openjdk
+  export PATH=$PATH:/usr/local/go/bin:/home/kriyss/.cargo/bin
+  export JDK_HOME=/home/kriyss/tools/jdk1.8/
+  export JAVA_HOME=/home/kriyss/tools/jdk1.8/
+  export JRE_HOME=/home/kriyss/tools/jdk1.8/jre/
   export ZSH=/home/kriyss/.oh-my-zsh
-  export PATH=$PATH:$GOPATH/bin
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -61,6 +61,8 @@ function goactivate() {
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source /etc/profile.d/autojump.zsh
+source $HOME/.credentials.sh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
