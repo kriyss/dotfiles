@@ -1,34 +1,14 @@
-! ------------------------------------------------------------------------------
-! Solarized Dark Color theme
-! ------------------------------------------------------------------------------
-
-#define S_base03        #002b37
-#define S_base02        #073643
-#define S_base01        #586e76
-#define S_base00        #657b84
-#define S_base0         #839497
-#define S_base1         #93a1a2
-#define S_base2         #eee8d6
-#define S_base3         #fdf6e3
-
-*secondary:  S_base3 
-*active:     S_blue 
+#include ".Xresources.d/solarized-light"
 
 *background:            S_base03
-*foreground:            S_base3
-*fadeColor:             S_base03
-*cursorColor:           S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
+*foreground:            S_base1
+*fadeColor:             S_base3
+*cursorColor:           S_base01
+*pointerColorBackground:S_base1
+*pointerColorForeground:S_base01
 
-#define S_yellow        #b58901
-#define S_orange        #cb4b17
-#define S_red           #dc322e
-#define S_magenta       #d33683
-#define S_violet        #6c71c5
-#define S_blue          #268bd3
-#define S_cyan          #2aa199
-#define S_green         #859901
+*secondary:  S_base1
+*active:     S_blue
 
 !! black dark/light
 *color0:                S_base02

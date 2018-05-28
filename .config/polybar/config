@@ -6,28 +6,29 @@
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
 secondary = ${xrdb:secondary}
-underline = ${xrdb:active}
+active = ${xrdb:active}
+primary = ${xrdb:active}
 
-red = ${xrdb:color1}
-green = ${xrdb:color2}
-yellow = ${xrdb:color3}
-blue = ${xrdb:color4}
-magenta = ${xrdb:color5}
-cyan = ${xrdb:color6}
-orange = ${xrdb:color9}
-violet = ${xrdb:color13}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color9 = ${xrdb:color9}
+color13 = ${xrdb:color13}
 
-base03= ${xrdb:color15}
-base02= ${xrdb:color0}
-base01= ${xrdb:color10}
-base00= ${xrdb:color11}
-base0= ${xrdb:color12}
-base1= ${xrdb:color14}
-base2= ${xrdb:color7}
-base3= ${xrdb:color15}
+color15 = ${xrdb:color15}
+color0 = ${xrdb:color0}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color14 = ${xrdb:color14}
+color7 = ${xrdb:color7}
 
 
 [bar/parent]
+monitor=${env:MONITOR}
 padding-right = 3
 module-margin = 2
 separator = |
@@ -40,9 +41,8 @@ font-3 = "Material Design Icons:size=13;2"
 height = 30
 offset-y = 0
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-
+background=${colors.background}
+foreground=${colors.foreground}
 
 [bar/default]
 inherit = bar/parent
@@ -53,8 +53,7 @@ padding-left = 0
 
 modules-left = i3 xwindow
 #modules-center = 
-modules-right = spotify gmail date powermenu
-
+modules-right = spotify gmail date theme powermenu
 
 [bar/bottom]
 inherit = bar/parent
@@ -63,7 +62,7 @@ bottom = true
 padding-left = 3
 
 modules-left = volume backlight
-modules-right = cpu filesystem memory battery wireless-network
+modules-right = cpu filesystem memory battery wireless-network displayer
 
 [module/spotify]
 type = custom/script
@@ -72,7 +71,7 @@ exec = /home/kriyss/.config/polybar/spotify.sh --title
 click-left = i3-msg workspace 8
 interval = 5
 format=   <label> 
-format-foreground= ${colors.foreground}
+format-foreground = ${colors.foreground}
 format-underline = ${colors.background}
 label = %output%
 
@@ -88,13 +87,13 @@ type = internal/xbacklight
 card = intel_backlight
 format =  <bar> 
 
-bar-foreground-5 = ${colors.base3}
-bar-foreground-4 = ${colors.base2}
-bar-foreground-3 = ${colors.base1}
-bar-foreground-2 = ${colors.base0}
-bar-foreground-1 = ${colors.base00}
-bar-foreground-0 = ${colors.base01}
-bar-empty-foreground = ${colors.base02}
+bar-foreground-5 = ${colors.color15}
+bar-foreground-4 = ${colors.color7}
+bar-foreground-3 = ${colors.color14}
+bar-foreground-2 = ${colors.color12}
+bar-foreground-1 = ${colors.color11}
+bar-foreground-0 = ${colors.color10}
+bar-empty-foreground = ${colors.color0}
 
 bar-width = 7
 bar-indicator =
@@ -128,16 +127,15 @@ ramp-capacity-4 = 
 
 bar-capacity-indicator = 
 bar-capacity-width = 7
-bar-capacity-foreground-0 = ${colors.red}
-bar-capacity-foreground-1 = ${colors.orange}
-bar-capacity-foreground-2 = ${colors.yellow}
-bar-capacity-foreground-3 = ${colors.blue}
-bar-capacity-foreground-4 = ${colors.cyan}
-bar-capacity-foreground-5 = ${colors.green}
+bar-capacity-foreground-0 = ${colors.color1}
+bar-capacity-foreground-1 = ${colors.color9}
+bar-capacity-foreground-2 = ${colors.color3}
+bar-capacity-foreground-3 = ${colors.color4}
+bar-capacity-foreground-4 = ${colors.color6}
+bar-capacity-foreground-5 = ${colors.color2}
 bar-capacity-fill = ▐
 bar-capacity-empty = ▐
-bar-capacity-empty-foreground = ${colors.base02}
-
+bar-capacity-empty-foreground = ${colors.color0}
 
 [module/i3]
 type = internal/i3
@@ -150,10 +148,10 @@ reverse-scroll = false
 fuzzy-match = true
 format = <label-mode><label-state>
 label-mode-padding = 2
-label-mode-underline = ${colors.underline}
+label-mode-underline = ${colors.secondary}
 label-focused = %index%  %icon%
-label-focused-foreground = ${colors.blue}
-label-focused-underline = ${colors.blue}
+label-focused-foreground = ${colors.primary}
+label-focused-underline = ${colors.primary}
 label-focused-padding = 2
 label-unfocused = %index%  %icon%
 label-unfocused-padding = 2
@@ -164,8 +162,8 @@ label-visible-underline = ${colors.foreground}
 label-visible-padding = 2
 label-urgent = %index%  %icon%
 label-urgent-foreground = ${colors.background} 
-label-urgent-background = ${colors.underline} 
-label-urgent-underline = ${colors.underline} 
+label-urgent-background = ${colors.background} 
+label-urgent-underline = ${colors.color0} 
 label-urgent-padding = 2
 
 ws-icon-0 = 1;
@@ -194,15 +192,15 @@ label-mounted = %mountpoint%
 
 bar-used-indicator = 
 bar-used-width = 7
-bar-used-foreground-0 = ${colors.green}
-bar-used-foreground-1 = ${colors.cyan}
-bar-used-foreground-2 = ${colors.blue}
-bar-used-foreground-3 = ${colors.yellow}
-bar-used-foreground-4 = ${colors.orange}
-bar-used-foreground-5 = ${colors.red}
+bar-used-foreground-0 = ${colors.color2}
+bar-used-foreground-1 = ${colors.color6}
+bar-used-foreground-2 = ${colors.color4}
+bar-used-foreground-3 = ${colors.color3}
+bar-used-foreground-4 = ${colors.color9}
+bar-used-foreground-5 = ${colors.color1}
 bar-used-fill = ▐
 bar-used-empty = ▐
-bar-used-empty-foreground = ${colors.base02}
+bar-used-empty-foreground = ${colors.color0}
 
 
 [module/cpu]
@@ -218,13 +216,18 @@ ramp-coreload-3 = ▅
 ramp-coreload-4 = ▇
 ramp-coreload-5 = █
 
-ramp-coreload-0-foreground = ${colors.green}
-ramp-coreload-1-foreground = ${colors.cyan}
-ramp-coreload-2-foreground = ${colors.blue}
-ramp-coreload-3-foreground = ${colors.yellow}
-ramp-coreload-4-foreground = ${colors.orange}
-ramp-coreload-5-foreground = ${colors.red}
+ramp-coreload-0-foreground = ${colors.color2}
+ramp-coreload-1-foreground = ${colors.color6}
+ramp-coreload-2-foreground = ${colors.color4}
+ramp-coreload-3-foreground = ${colors.color3}
+ramp-coreload-4-foreground = ${colors.color9}
+ramp-coreload-5-foreground = ${colors.color1}
 
+
+[module/displayer]
+type = custom/text
+content = ${env:MONITOR}
+click-left = /home/kriyss/.config/polybar/screen.sh
 
 [module/memory]
 type = internal/memory
@@ -234,15 +237,15 @@ label = 
 
 bar-used-indicator = 
 bar-used-width = 7
-bar-used-foreground-0 = ${colors.green}
-bar-used-foreground-1 = ${colors.cyan}
-bar-used-foreground-2 = ${colors.blue}
-bar-used-foreground-3 = ${colors.yellow}
-bar-used-foreground-4 = ${colors.orange}
-bar-used-foreground-5 = ${colors.red}
+bar-used-foreground-0=${colors.color2}
+bar-used-foreground-1=${colors.color6}
+bar-used-foreground-2=${colors.color4}
+bar-used-foreground-3=${colors.color3}
+bar-used-foreground-4=${colors.color9}
+bar-used-foreground-5=${colors.color1}
 bar-used-fill = ▐
 bar-used-empty = ▐
-bar-used-empty-foreground = ${colors.base02}
+bar-used-empty-foreground=${colors.color0}
 
 
 [module/date]
@@ -259,13 +262,13 @@ format-volume =   <bar-volume>
 format-muted =  
 label-volume = %percentage%%
 
-bar-volume-foreground-5 = ${colors.base3}
-bar-volume-foreground-4 = ${colors.base2}
-bar-volume-foreground-3 = ${colors.base1}
-bar-volume-foreground-2 = ${colors.base0}
-bar-volume-foreground-1 = ${colors.base00}
-bar-volume-foreground-0 = ${colors.base01}
-bar-volume-empty-foreground = ${colors.base02}
+bar-volume-foreground-5=${colors.color15}
+bar-volume-foreground-4=${colors.color7}
+bar-volume-foreground-3=${colors.color14}
+bar-volume-foreground-2=${colors.color12}
+bar-volume-foreground-1=${colors.color11}
+bar-volume-foreground-0=${colors.color10}
+bar-volume-empty-foreground=${colors.color0}
 
 bar-volume-width = 7
 bar-volume-indicator = 
@@ -278,12 +281,12 @@ type = internal/network
 interface = wlp58s0
 
 format-connected = "  <ramp-signal> <label-connected>"
-label-connected-foreground = ${colors.foreground}
+label-connected-foreground=${colors.foreground}
 label-connected = " %essid%"
 
 ;format-disconnected = wifi <label-disconnected>
 format-disconnected =  <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
+;format-disconnected-underline=${self.format-connected-underline}
 
 ramp-signal-0 = ▁
 ramp-signal-1 = ▂
@@ -292,12 +295,12 @@ ramp-signal-3 = ▅
 ramp-signal-4 = ▇
 ramp-signal-5 = █
 
-ramp-signal-0-foreground = ${colors.red}
-ramp-signal-1-foreground = ${colors.orange}
-ramp-signal-2-foreground = ${colors.yellow}
-ramp-signal-3-foreground = ${colors.blue}
-ramp-signal-4-foreground = ${colors.cyan}
-ramp-signal-5-foreground = ${colors.green}
+ramp-signal-0-foreground=${colors.color1}
+ramp-signal-1-foreground=${colors.color9}
+ramp-signal-2-foreground=${colors.color3}
+ramp-signal-3-foreground=${colors.color4}
+ramp-signal-4-foreground=${colors.color6}
+ramp-signal-5-foreground=${colors.color2}
 
 
 [module/powermenu]
@@ -307,15 +310,30 @@ format-spacing = 1▇
 label-open = 
 label-close = 
 label-separator = " - "
-label-separator-foreground = ${colors.secondary}
+label-separator-foreground=${colors.secondary}
 
 menu-0-0 = reboot
-menu-0-0-foreground = ${colors.blue}
+menu-0-0-foreground=${colors.foreground}
 menu-0-0-exec = reboot
 menu-0-1 = power off
-menu-0-1-foreground = ${colors.blue}
+menu-0-1-foreground=${colors.active}
 menu-0-1-exec = poweroff
 
+[module/theme]
+type = custom/menu
+label-active-font = 1
+format-spacing = 1▇
+label-open = 
+label-close = 
+label-separator = " - "
+label-separator-foreground=${colors.secondary}
+
+menu-0-0 = Light
+menu-0-0-foreground=${colors.active}
+menu-0-0-exec = /home/kriyss/.config/polybar/theme-light.sh
+menu-0-1 = Dark
+menu-0-1-foreground=${colors.active}
+menu-0-1-exec = /home/kriyss/.config/polybar/theme-dark.sh
 
 [settings]
 screenchange-reload = true

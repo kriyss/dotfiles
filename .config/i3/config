@@ -15,25 +15,13 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:monospace 8
 
-exec --no-startup-id xrdb ~/.Xresource
+exec_always --no-startup-id xrdb -I ~/.Xresources
+
 # Using feh to change background
-exec_always feh --bg-scale --no-xinerama /home/kriyss/wallpaper.jpg
+#exec_always feh --bg-scale --no-xinerama /home/kriyss/wallpaper-dark.jpg
+#exec_always feh --bg-scale --no-xinerama /home/kriyss/wallpaper-light.jpg
 # Compton enable i3 transparence
 exec --no-startup-id compton -f -D 2 -cCGb --backend glx --vsync opengl
-
-set $bg-color			#268bd2
-set $inactive-bg-color		#002b37
-set $text-color			#ffffff
-set $inactive-text-color	#819396
-set $urgent-bg-color            #890661
-
-# Font for window titles. Will also be used by the bar unless a different font
-# Widow Colours
-#                       border			background		text			indicator
-client.focused          $bg-color		$bg-color		$text-color		#00f00
-client.focused_inactive $inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00f00
-client.unfocused       	$inactive-bg-color      $inactive-bg-color      $inactive-text-color    #00f00 
-client.urgent           $urgent-bg-color	$urgent-bg-color	$text-color		#00f00
 
 new_window pixel 1 
 hide_edge_borders smart
@@ -105,15 +93,11 @@ bindsym $mod+space focus mode_toggle
 # mouse 
 focus_follows_mouse no
 
-set $workspace1 "1 "
-set $workspace2 "2 "
-set $workspace3 "3 "
-set $workspace4 "4 "
 # switch to workspace
-bindsym $mod+ampersand  workspace $workspace1
-bindsym $mod+eacute     workspace $workspace2
-bindsym $mod+quotedbl   workspace $workspace3
-bindsym $mod+apostrophe workspace $workspace4
+bindsym $mod+ampersand  workspace 1
+bindsym $mod+eacute     workspace 2
+bindsym $mod+quotedbl   workspace 3
+bindsym $mod+apostrophe workspace 4
 bindsym $mod+parenleft  workspace 5
 bindsym $mod+minus      workspace 6
 bindsym $mod+egrave     workspace 7
@@ -122,10 +106,10 @@ bindsym $mod+ccedilla   workspace 9
 bindsym $mod+agrave     workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+ampersand    move container to workspace $workspace1
-bindsym $mod+Shift+eacute       move container to workspace $workspace2
-bindsym $mod+Shift+quotedbl     move container to workspace $workspace3
-bindsym $mod+Shift+apostrophe   move container to workspace $workspace4
+bindsym $mod+Shift+ampersand    move container to workspace 1
+bindsym $mod+Shift+eacute       move container to workspace 2
+bindsym $mod+Shift+quotedbl     move container to workspace 3
+bindsym $mod+Shift+apostrophe   move container to workspace 4
 bindsym $mod+Shift+5            move container to workspace 5
 bindsym $mod+Shift+minus        move container to workspace 6
 bindsym $mod+Shift+egrave       move container to workspace 7
@@ -146,6 +130,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+bindsym $mod+Shift+p exec "~/.config/polybar/polybar.launch.sh &"
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -175,4 +160,4 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id "killall polybar;polybar -r default & polybar -r bottom &"
+exec_always "~/.config/polybar/polybar.launch.sh &"
