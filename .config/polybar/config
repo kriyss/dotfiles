@@ -53,7 +53,7 @@ padding-left = 0
 
 modules-left = i3 xwindow
 #modules-center = 
-modules-right = spotify gmail date theme powermenu
+modules-right = spotify gmail date powermenu
 
 [bar/bottom]
 inherit = bar/parent
@@ -61,7 +61,7 @@ bottom = true
 
 padding-left = 3
 
-modules-left = volume backlight
+modules-left = volume backlight theme
 modules-right = cpu filesystem memory battery wireless-network displayer
 
 [module/spotify]
@@ -315,9 +315,12 @@ label-separator-foreground=${colors.secondary}
 menu-0-0 = reboot
 menu-0-0-foreground=${colors.foreground}
 menu-0-0-exec = reboot
-menu-0-1 = power off
+menu-0-1 = logout
 menu-0-1-foreground=${colors.active}
-menu-0-1-exec = poweroff
+menu-0-1-exec = i3-msg exit
+menu-0-2 = power off
+menu-0-2-foreground=${colors.active}
+menu-0-2-exec = poweroff
 
 [module/theme]
 type = custom/menu
