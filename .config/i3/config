@@ -18,10 +18,10 @@ font pango:monospace 8
 exec_always --no-startup-id xrdb -I ~/.Xresources
 
 # Using feh to change background
-#exec_always feh --bg-scale --no-xinerama /home/kriyss/wallpaper-dark.jpg
-#exec_always feh --bg-scale --no-xinerama /home/kriyss/wallpaper-light.jpg
+exec_always feh --bg-scale --no-xinerama /home/kriyss/wallpaper-dark.jpg
+
 # Compton enable i3 transparence
-exec --no-startup-id compton -f -D 2 -cCGb --backend glx --vsync opengl
+#exec --no-startup-id compton -f -D 2 -cCGb --backend glx --vsync opengl
 
 new_window pixel 1 
 hide_edge_borders smart

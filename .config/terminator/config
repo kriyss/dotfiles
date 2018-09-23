@@ -15,15 +15,31 @@
     [[[window0]]]
       parent = ""
       type = Window
+  [[skillogs]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = ea893ec6-3575-4758-9826-cc730a94fe53
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 2560:30
+      size = 638, 1018
+      title = kriyss@xps: ~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = ea893ec6-3575-4758-9826-cc730a94fe53
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#002b36"
-    background_darkness = 0.8
-    background_type = transparent
+    background_color = "#002b37"
+    background_darkness = 0.99
     copy_on_selection = True
     cursor_color = "#eee8d5"
     foreground_color = "#eee8d5"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     scrollback_infinite = True
-    use_theme_colors = True

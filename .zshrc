@@ -18,8 +18,8 @@ ZSH_THEME="agnoster"
 # export UPDATE_ZSH_DAYS=13
 # DISABLE_LS_COLORS="true"
 # DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="true"
-# COMPLETION_WAITING_DOTS="true"
+# ENABLE_CORRECTION="true"
+#COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="dd/mm/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -34,3 +34,11 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 ## alias
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+# add support for ctrl+o to open selected file in VS Code
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+alias top='htop'
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'

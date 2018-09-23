@@ -53,7 +53,7 @@ padding-left = 0
 
 modules-left = i3 xwindow
 #modules-center = 
-modules-right = spotify gmail date powermenu
+modules-right = spotify date powermenu
 
 [bar/bottom]
 inherit = bar/parent
