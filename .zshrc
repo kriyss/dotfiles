@@ -12,6 +12,7 @@ function goactivate() {
 }
 
 ZSH_THEME="agnoster"
+ZSH_TMUX_AUTOSTART="true"
 # CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true" # _ and - will be interchangeable.
 # DISABLE_AUTO_UPDATE="true"
@@ -19,12 +20,12 @@ ZSH_THEME="agnoster"
 # DISABLE_LS_COLORS="true"
 # DISABLE_AUTO_TITLE="true"
 # ENABLE_CORRECTION="true"
-#COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="dd/mm/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git)
+plugins=(git tmux autojump)
 
 source /etc/profile.d/autojump.zsh
 source $HOME/.credentials.sh
@@ -39,6 +40,9 @@ alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 # add support for ctrl+o to open selected file in VS Code
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 alias top='htop'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
+alias start_services="sudo systemctl start mongodb.service && sudo systemctl start rabbitmq.service "
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

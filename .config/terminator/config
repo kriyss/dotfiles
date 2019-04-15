@@ -37,7 +37,8 @@
 [profiles]
   [[default]]
     background_color = "#002b37"
-    background_darkness = 0.99
+    background_darkness = 1.0
+    background_type = transparent
     copy_on_selection = True
     cursor_color = "#eee8d5"
     foreground_color = "#eee8d5"

@@ -5,40 +5,39 @@
 
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
-secondary = ${xrdb:secondary}
-active = ${xrdb:active}
-primary = ${xrdb:active}
+secondary  = ${xrdb:secondary}
+active     = ${xrdb:active}
+primary    = ${xrdb:active}
 
-color1 = ${xrdb:color1}
-color2 = ${xrdb:color2}
-color3 = ${xrdb:color3}
-color4 = ${xrdb:color4}
-color5 = ${xrdb:color5}
-color6 = ${xrdb:color6}
-color9 = ${xrdb:color9}
-color13 = ${xrdb:color13}
-
-color15 = ${xrdb:color15}
-color0 = ${xrdb:color0}
+color0  = ${xrdb:color0}
+color1  = ${xrdb:color1}
+color2  = ${xrdb:color2}
+color3  = ${xrdb:color3}
+color4  = ${xrdb:color4}
+color5  = ${xrdb:color5}
+color6  = ${xrdb:color6}
+color7  = ${xrdb:color7}
+color8  = ${xrdb:color8}
+color9  = ${xrdb:color9}
 color10 = ${xrdb:color10}
 color11 = ${xrdb:color11}
 color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
 color14 = ${xrdb:color14}
-color7 = ${xrdb:color7}
-
+color15 = ${xrdb:color15}
 
 [bar/parent]
 monitor=${env:MONITOR}
 padding-right = 3
 module-margin = 2
-separator = |
+separator = | 
 
 font-0 = SFNS Display:size=13;2
 font-1 = FontAwesome:size=13;2
 font-2 = xos4terminus:size=18:weight=bold;2
 font-3 = "Material Design Icons:size=13;2"
 
-height = 30
+height = 26
 offset-y = 0
 
 background=${colors.background}
@@ -47,22 +46,13 @@ foreground=${colors.foreground}
 [bar/default]
 inherit = bar/parent
 top = true
-line-size = 3
 
-padding-left = 0
-
-modules-left = i3 xwindow
-#modules-center = 
-modules-right = spotify date powermenu
-
-[bar/bottom]
-inherit = bar/parent
-bottom = true
-
+line-size = 2
 padding-left = 3
 
-modules-left = volume backlight theme
-modules-right = cpu filesystem memory battery wireless-network displayer
+modules-left = cpu filesystem memory battery 
+modules-center = i3 
+modules-right = volume backlight wireless-network powermenu 
 
 [module/spotify]
 type = custom/script
@@ -74,13 +64,6 @@ format=   <label>
 format-foreground = ${colors.foreground}
 format-underline = ${colors.background}
 label = %output%
-
-[module/gmail]
-type = custom/script
-exec = ~/.config/polybar/gmail/launch.py
-tail = true
-click-left = xdg-open https://mail.google.com
-
 
 [module/backlight]
 type = internal/xbacklight
@@ -223,12 +206,6 @@ ramp-coreload-3-foreground = ${colors.color3}
 ramp-coreload-4-foreground = ${colors.color9}
 ramp-coreload-5-foreground = ${colors.color1}
 
-
-[module/displayer]
-type = custom/text
-content = ${env:MONITOR}
-click-left = /home/kriyss/.config/polybar/screen.sh
-
 [module/memory]
 type = internal/memory
 interval = 3
@@ -280,28 +257,12 @@ bar-volume-empty = ▐
 type = internal/network
 interface = wlp58s0
 
-format-connected = "  <ramp-signal> <label-connected>"
+format-connected = " <label-connected>"
 label-connected-foreground=${colors.foreground}
 label-connected = " %essid%"
 
-;format-disconnected = wifi <label-disconnected>
 format-disconnected =  <label-disconnected>
 ;format-disconnected-underline=${self.format-connected-underline}
-
-ramp-signal-0 = ▁
-ramp-signal-1 = ▂
-ramp-signal-2 = ▃
-ramp-signal-3 = ▅
-ramp-signal-4 = ▇
-ramp-signal-5 = █
-
-ramp-signal-0-foreground=${colors.color1}
-ramp-signal-1-foreground=${colors.color9}
-ramp-signal-2-foreground=${colors.color3}
-ramp-signal-3-foreground=${colors.color4}
-ramp-signal-4-foreground=${colors.color6}
-ramp-signal-5-foreground=${colors.color2}
-
 
 [module/powermenu]
 type = custom/menu
@@ -321,22 +282,6 @@ menu-0-1-exec = i3-msg exit
 menu-0-2 = power off
 menu-0-2-foreground=${colors.active}
 menu-0-2-exec = poweroff
-
-[module/theme]
-type = custom/menu
-label-active-font = 1
-format-spacing = 1▇
-label-open = 
-label-close = 
-label-separator = " - "
-label-separator-foreground=${colors.secondary}
-
-menu-0-0 = Light
-menu-0-0-foreground=${colors.active}
-menu-0-0-exec = /home/kriyss/.config/polybar/theme-light.sh
-menu-0-1 = Dark
-menu-0-1-foreground=${colors.active}
-menu-0-1-exec = /home/kriyss/.config/polybar/theme-dark.sh
 
 [settings]
 screenchange-reload = true

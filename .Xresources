@@ -1,14 +1,16 @@
-#include ".Xresources.d/solarized-dark"
+#include ".Xresources.d/themes/nord"
+#include ".Xresources.d/uxrvt"
+#include ".Xresources.d/rofi"
 
-*background:            S_base03
-*foreground:            S_base1
-*fadeColor:             S_base3
-*cursorColor:           S_base01
-*pointerColorBackground:S_base1
-*pointerColorForeground:S_base01
+*background:             S_base03
+*foreground:             S_base1
+*fadeColor:              S_base3
+*cursorColor:            S_base01
+*pointerColorBackground: S_base1
+*pointerColorForeground: S_base01
 
 *secondary:  S_base1
-*active:     S_blue
+*active:     S_yellow
 
 !! black dark/light
 *color0:                S_base02
@@ -41,24 +43,3 @@
 !! white dark/light
 *color7:                S_base2
 *color15:               S_base3
-
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-rofi.color-enabled:     true
-rofi.separator-style:   dash
-rofi.hide-scrollbar:    true
-rofi.lines:             5
-rofi.eh:                2
-rofi.width:             100
-rofi.padding:           100
-rofi.bw:                0
-rofi.font:              System San Francisco Display 18
-
-! State:           bg,              fg
-rofi.color-window: argb:ee002b37,   argb:ee002b37
-
-! State:           bg,              fg,             bgalt,          hlbg,       hlfg
-rofi.color-normal: argb:00002b37,   argb:ee819396,  argb:ee002b37,  #268bd2,    #fdf6e3
-rofi.color-active: argb:ee002b37,   #268bd2,         argb:ee002b37,  #268bd2,    #2aa198
-rofi.color-urgent: argb:ee002b37,   #da4281,        argb:ee002b37,  #268bd2,    #890661
