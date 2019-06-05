@@ -1,4 +1,6 @@
 export PATH=$PATH:/usr/local/go/bin:/home/kriyss/.cargo/bin
+export PATH=$PATH:/home/kriyss/tools
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export JDK_HOME=/home/kriyss/tools/jdk1.8/
 export JAVA_HOME=/home/kriyss/tools/jdk1.8/
 export JRE_HOME=/home/kriyss/tools/jdk1.8/jre/
@@ -27,7 +29,6 @@ ZSH_TMUX_AUTOSTART="true"
 
 plugins=(git tmux autojump)
 
-source /etc/profile.d/autojump.zsh
 source $HOME/.credentials.sh
 source $ZSH/oh-my-zsh.sh
 
@@ -45,4 +46,4 @@ alias top='htop'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
 alias start_services="sudo systemctl start mongodb.service && sudo systemctl start rabbitmq.service "
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+alias last_installed="grep -i installed /var/log/pacman.log"

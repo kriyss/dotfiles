@@ -1,4 +1,4 @@
-#include ".Xresources.d/themes/nord"
+#include ".Xresources.d/themes/1-theme"
 #include ".Xresources.d/uxrvt"
 #include ".Xresources.d/rofi"
 

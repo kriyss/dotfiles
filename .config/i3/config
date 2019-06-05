@@ -7,6 +7,11 @@ set $alt Mod1
 focus_follows_mouse no
 floating_modifier $mod
 
+for_window [class="Visual Studio Code"] move container to workspace 1
+# for_window [class="URxvt"] move container to workspace 2
+for_window [class="Firefox"] move container to workspace 3
+for_window [class="Spotify"] move container to workspace 8
+
 # Style i3 
 # ==============================================================================
 
@@ -49,6 +54,10 @@ bindsym $mod+d          exec rofi -show-icons -show drun
 bindsym $mod+Tab        exec rofi -show-icons -show window
 # Monitor selection
 bindsym $mod+p          exec ~/.config/rofi/monitor_layout.sh
+# Wifi selection
+bindsym $mod+w          exec ~/.config/rofi/wifi-menu/menu.sh
+# Audio selection
+bindsym $mod+x          exec ~/.config/rofi/audio.sh
 
 # split in horizontal orientation
 bindsym $mod+h  split h
@@ -136,8 +145,8 @@ bindsym $mod+r mode "resize"
 
 # Gaps 
 # 1. shortcut
-bindsym $mod+$alt+Up gaps inner all plus 5
-bindsym $mod+$alt+Down gaps inner all minus 5
+bindsym $mod+$alt+Down gaps inner all plus 5
+bindsym $mod+$alt+Up   gaps inner all minus 5
 
 # 2. mode
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft

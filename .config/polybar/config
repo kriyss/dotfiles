@@ -124,29 +124,33 @@ bar-capacity-empty-foreground = ${colors.color0}
 type = internal/i3
 pin-workspaces = true
 index-sort = true
-enable-click = true
 enable-scroll = false
 wrapping-scroll = false
 reverse-scroll = false
 fuzzy-match = true
 format = <label-mode><label-state>
+
 label-mode-padding = 2
 label-mode-underline = ${colors.secondary}
+
 label-focused = %index%  %icon%
 label-focused-foreground = ${colors.primary}
 label-focused-underline = ${colors.primary}
 label-focused-padding = 2
+
 label-unfocused = %index%  %icon%
 label-unfocused-padding = 2
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-underline = ${colors.foreground}
+
 label-visible = %index%  %icon%
 label-visible-underline = ${colors.foreground}
 label-visible-padding = 2
+
 label-urgent = %index%  %icon%
 label-urgent-foreground = ${colors.background} 
-label-urgent-background = ${colors.background} 
-label-urgent-underline = ${colors.color0} 
+label-urgent-underline = ${colors.color1}
+label-urgent-background = ${colors.color1} 
 label-urgent-padding = 2
 
 ws-icon-0 = 1;
