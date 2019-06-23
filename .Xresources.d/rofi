@@ -1,0 +1,22 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled:     true
+rofi.separator-style:   solid
+rofi.hide-scrollbar:    true
+rofi.lines:             5
+rofi.eh:                1
+rofi.line-padding: 		16
+rofi.width:             100
+rofi.padding:           100
+rofi.bw:                0
+rofi.font:              Fira Code 18
+rofi.sidebar-mode:      false  !enable multiple mod tab
+
+! State:           bg,       fg
+rofi.color-window: S_base03, S_base03
+
+! State:           bg,        fg,       bgalt,     hlbg,      hlfg
+rofi.color-normal: S_base03,  S_base1,  S_base02,  S_yellow,  S_base02
+rofi.color-active: S_base03,  S_base1,  S_base02,  S_yellow,  S_base02
+rofi.color-urgent: S_base03,  S_base1,  S_base02,  S_yellow,  S_base02

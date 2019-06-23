@@ -1,0 +1,28 @@
+! ------------------------------------------------------------------------------
+! URXVT
+! ------------------------------------------------------------------------------
+
+URxvt.shading:       30
+URxvt.transparent:   true
+
+URxvt.font:           xft:Fira Code
+URxvt.letterSpace:    0
+URxvt.internalBorder: 0
+URxvt.externalBorder: 0
+URxvt.thickness:      0
+URxvt.borderLess:     false
+URxvt.scrollBar:      false
+
+URxvt.perl-ext-common:  default,matcher,selection-to-clipboard
+URxvt.url-launcher:     firefox
+URxvt.matcher.button:   3
+
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+
+
+!URxvt.keysym.Control-minus:   resize-font:smaller
+!URxvt.keysym.Control-plus:    resize-font:bigger
+!URxvt.keysym.Control-equal:   resize-font:reset

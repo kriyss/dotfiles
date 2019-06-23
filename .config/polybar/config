@@ -137,7 +137,7 @@ label-focused = %index%  %icon%
 label-focused-foreground = ${colors.primary}
 label-focused-underline = ${colors.primary}
 label-focused-padding = 2
-
+ 
 label-unfocused = %index%  %icon%
 label-unfocused-padding = 2
 label-unfocused-foreground = ${colors.foreground}
