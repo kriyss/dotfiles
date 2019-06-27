@@ -7,8 +7,6 @@ set $alt Mod1
 focus_follows_mouse no
 floating_modifier $mod
 
-for_window [class="Visual Studio Code"] move container to workspace 1
-# for_window [class="URxvt"] move container to workspace 2
 for_window [class="Firefox"] move container to workspace 3
 for_window [class="Spotify"] move container to workspace 8
 
@@ -18,7 +16,7 @@ for_window [class="Spotify"] move container to workspace 8
 gaps inner 15
 new_window pixel 2
 hide_edge_borders smart
-font pango:monospace 8
+font pango:monospace 12
 
 # Set colors from XResouces
 set_from_resource       $S_base03       color8
@@ -30,14 +28,14 @@ set_from_resource       $S_blue         color4
 client.focused  $S_yellow  $S_base03  $S_base1  $S_blue    $S_yellow
 
 # Transparence
-exec --no-startup-id compton -f -D 2 -cCGb --backend glx --vsync opengl
+# exec --no-startup-id compton -f -D 2 -cCGb --backend glx --vsync opengl
 
 # Launch
 # ==============================================================================
 
-exec_always "~/.config/polybar/polybar.launch.sh &"
-exec_always --no-startup-id xrdb -I ~/.Xresources
 exec_always feh --bg-scale --no-xinerama /home/kriyss/Images/wallpapers/nord.jpg
+exec_always --no-startup-id xrdb -I ~/.Xresources
+exec_always "~/.config/polybar/polybar.launch.sh &"
 
 # Bindings
 # ==============================================================================

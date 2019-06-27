@@ -23,7 +23,7 @@ color10 = ${xrdb:color10}
 color11 = ${xrdb:color11}
 color12 = ${xrdb:color12}
 color13 = ${xrdb:color13}
-color14 = ${xrdb:color14}
+color14 = ${xrdb:color14} 
 color15 = ${xrdb:color15}
 
 [bar/parent]
@@ -50,20 +50,9 @@ top = true
 line-size = 2
 padding-left = 3
 
-modules-left = cpu filesystem memory battery 
+modules-left = cpu memory battery 
 modules-center = i3 
 modules-right = volume backlight wireless-network powermenu 
-
-[module/spotify]
-type = custom/script
-exec-if = /home/kriyss/.config/polybar/spotify.sh --isPlaying
-exec = /home/kriyss/.config/polybar/spotify.sh --title
-click-left = i3-msg workspace 8
-interval = 5
-format=   <label> 
-format-foreground = ${colors.foreground}
-format-underline = ${colors.background}
-label = %output%
 
 [module/backlight]
 type = internal/xbacklight
@@ -89,7 +78,7 @@ type = internal/battery
 full-at = 99
 battery = BAT0
 adapter = AC
-poll-interval = 30
+poll-interval = 60
 
 format-full = <ramp-capacity> <bar-capacity>
 format-discharging = <ramp-capacity> <bar-capacity>
