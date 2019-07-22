@@ -5,7 +5,7 @@ if type "xrandr"; then
 	
 	if [[ ! -z $S ]];then
 		echo "Launching polybar for screen" $P " and " $S
-		xrandr --output $P --primary --auto --right-of $S
+		xrandr --output $P --primary --auto --left-of $S
 		MONITOR=$P polybar -r default &
 		MONITOR=$S polybar -r default &
 	else
