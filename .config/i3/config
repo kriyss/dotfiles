@@ -10,7 +10,7 @@ floating_modifier $mod
 for_window [class="Firefox"] move container to workspace 3
 for_window [class="Spotify"] move container to workspace 8
 
-# Style i3 
+# Style i3
 # ==============================================================================
 
 gaps inner 15
@@ -141,7 +141,7 @@ bindsym $mod+g mode "$mode_gaps"
 bindsym $mod+r mode "resize"
 
 
-# Gaps 
+# Gaps
 # 1. shortcut
 bindsym $mod+$alt+Down gaps inner all plus 5
 bindsym $mod+$alt+Up   gaps inner all minus 5
@@ -267,7 +267,7 @@ mode "$mode_gaps_left" {
         bindsym Escape mode "default"
 }
 
-# Resize 
+# Resize
 mode "resize" {
         bindsym Left    resize shrink   width  10 px or 10 ppt
         bindsym Down    resize grow     height 10 px or 10 ppt
