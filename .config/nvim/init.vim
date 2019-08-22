@@ -1,31 +1,19 @@
-" Plugin management
-" Download vim-plug from the URL below and follow the installation
-" instructions:
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
-" call plug#begin('~/.vim/plugged')''
-" Devicon always load at first (parait il ...)
-" Plug 'ryanoasis/vim-devicons'
-
 
 " General plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'takac/vim-hardtime'
 Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+Plug 'dense-analysis/ale'
 " Language support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }	" Go support
-Plug 'zchee/deoplete-go'							" Asynchronous GO completion
-" Plug 'godoctor/godoctor.vim'						" Refactoring function in golang
-" Auto close bracket
-" Plug 'raimondi/delimitmate'
+Plug 'fatih/vim-go',					{ 'do': ':GoUpdateBinaries' }	" Go support
+Plug 'deoplete-plugins/deoplete-go',	{ 'do': 'make' }				" Asynchronous GO completion
 
-" Colorschemes
-" Plug 'https://github.com/romainl/flattened.git'
-" Plug 'arcticicestudio/nord-vim'
 Plug 'blb78/nord-vim'
 Plug 'blueyed/vim-diminactive'
 
@@ -36,7 +24,6 @@ call plug#end()
 " General settings
 "----------------------------------------------
 set autoindent					  " take indent for new line from previous line
-set smartindent					  " enable smart indentation
 set autoread					  " reload file if the file changes on the disk
 set autowrite					  " write when switching buffers
 set autowriteall				  " write on :quit
@@ -46,7 +33,7 @@ set cursorline					  " highlight the current line for the cursor
 set encoding=utf-8
 set lazyredraw
 set list						  " show trailing whitespace
-set listchars=tab:\→\ ,trail:▫
+set listchars=tab:\|\ ,trail:▫
 set listchars+=space:·
 set nospell						  " disable spelling
 set noswapfile					  " disable swapfile usage
@@ -70,19 +57,11 @@ set noexpandtab						" Use tabs, not spaces
 " scroll windows
 nnoremap <C-k> <C-u>
 nnoremap <C-j> <C-d>
+nnoremap <C-U> <C-R>
 
 nnoremap <C-b> :NERDTreeToggle<cr>
-" " Disable Arrow keys in Escape mode
-" map <up> <nop>
-" map <down> <nop>
-" map <left> <nop>
-" map <right> <nop>
-"
-" " Disable Arrow keys in Insert mode
-" imap <up> <nop>
-" imap <down> <nop>
-" imap <left> <nop>
-" imap <right> <nop>
+
+iabbrev iferr if err!= nil {<cr>}<esc>O
 
 set number relativenumber
 
@@ -92,14 +71,26 @@ set number relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter	* set norelativenumber
 :augroup END
 
-" AutoBracket
-inoremap { {}<Left>
+:augroup numberColorToggle
+:  autocmd!
+:  autocmd InsertEnter * highlight LineNr ctermbg=green		guifg=#A3BE8C
+:  autocmd InsertLeave * highlight LineNr ctermbg=black		guifg=#4C566A
+:augroup END
+
+" Autoclose
+" inoremap { {}<Left>
+inoremap ` ``<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
 
 " Allow vim to set a custom font or color for a word
 syntax enable
 
 " Set the leader button
 let mapleader = ','
+
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>m :Marks<cr>
 
 " Autosave buffers before leaving them
 autocmd BufLeave * silent! :wa
@@ -115,9 +106,9 @@ nnoremap <space> zz
 " Colors
 "----------------------------------------------
 if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+	let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
 endif
 " colorscheme flattened_light
 
@@ -156,13 +147,17 @@ nnoremap N Nzzzv
 "----------------------------------------------
 " Splits
 "----------------------------------------------
-" Create horizontal splits below the current window
 set splitbelow
 set splitright
 
 " Creating splits
 nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>h :split<cr>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Closing splits
 nnoremap <leader>q :close<cr>
@@ -172,8 +167,8 @@ let g:NERDTreeWinPos = "right"
 "----------------------------------------------
 " Plugin: junegunn/fzf.vim
 "----------------------------------------------
-let g:fzf_layout = { 'down': '~100%' }
-nnoremap - :FZF<cr>
+let g:fzf_layout = { 'down': '~30%' }
+nnoremap <C-S-f> :FZF<cr>
 
 
 "----------------------------------------------
@@ -194,6 +189,7 @@ function! Multiple_cursors_after()
 endfunction
 
 let g:deoplete#sources#go#gocode_binary = '/home/kriyss/go/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['var', 'func', 'type', 'package', 'const']
 "----------------------------------------------
 " Plugin: vim-airline/vim-airline
 "----------------------------------------------
@@ -207,82 +203,84 @@ let g:airline#extensions#tabline#show_tabs = 0
 " Enable powerline fonts.
 let g:airline_powerline_fonts = 1
 
+map <C-s> :wa<cr>  " Save all on Ctrl-s
+
+nnoremap <silent> <C-R> :Rg <C-R><C-W><CR>
+
 "----------------------------------------------
 " Language: Golang
 "----------------------------------------------
 " Mappings
-au FileType go nmap <F8> :GoMetaLinter<cr>
-au FileType go nmap <F9> :GoCoverageToggle -short<cr>
-au FileType go nmap <F10> :GoTest -short<cr>
-au FileType go nmap <F12> <Plug>(go-def)
-au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
-au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
-au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
-au FileType go nmap <leader>gt :GoDeclsDir<cr>
-au FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-au FileType go nmap <leader>gd <Plug>(go-def)
-au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
-au FileType go nmap <leader>gdh <Plug>(go-def-split)
-au FileType go nmap <leader>gD <Plug>(go-doc)
-au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>gl	:GoMetaLinter<cr>
+au FileType go nmap <leader>gc	<Plug>(go-coverage-toggle)
+
+au Filetype go nmap <leader>gt	:GoTest<cr>
+au Filetype go nmap <leader>gtf	:GoTestFunc<cr>
+
+au Filetype go nmap <leader>ga	<Plug>(go-alternate-edit)
+au Filetype go nmap <leader>gah	<Plug>(go-alternate-split)
+au Filetype go nmap <leader>gav	<Plug>(go-alternate-vertical)
+
+
+au FileType go nmap <leader>gd	<Plug>(go-def)
+au FileType go nmap <leader>gdv	<Plug>(go-def-vertical)
+au FileType go nmap <leader>gdh	<Plug>(go-def-split)
+
+au FileType go nmap <leader>gD	<Plug>(go-doc)
+au FileType go nmap <leader>gDv	<Plug>(go-doc-vertical)
+
+au FileType go nmap <leader>gi :GoImplements<cr>
+au FileType go nmap <leader>gr :GoReferrers<cr>
+au FileType go nmap <leader>gC :GoCallees<cr>
+
+" au FileType go autocmd BufLeave * <Plug>(go-coverage-toogle)
+
 
 " Set gopath and gobin
 let $GOPATH=getcwd()
 let $GOBIN='/home/kriyss/go/bin'
 
-" Run goimports when running gofmt
-let g:go_fmt_command = "goimports"
+function! GoSetPwd()
+	let $GOPATH='/home/kriyss/go'
+endfunction
 
-" Set neosnippet as snippet engine
-" let g:go_snippet_engine = "neosnippet"
-"
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-" imap <C-k>	   <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>	   <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>	   <Plug>(neosnippet_expand_target)
+nmap <leader>gp	:call GoSetPwd()<cr>
 
-" Enable syntax highlighting per default
-" let g:go_highlight_types = 1
-" let g:go_highlight_fields = 1
-" let g:go_highlight_functions = 1
-" let g:go_highlight_methods = 1
-" let g:go_highlight_structs = 1
-" let g:go_highlight_operators = 1
-" let g:go_highlight_build_constraints = 1
-" let g:go_highlight_extra_types = 1
+" Use go pls
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+" Error and warning signs.
 
-" Show the progress when running :GoCoverage
-let g:go_echo_command_info = 1
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
 
-" Show type information
-let g:go_auto_type_info = 1
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
 
-" Highlight variable uses
-let g:go_auto_sameids = 1
-
-" Fix for location list when vim-go is used together with Syntastic
-let g:go_list_type = "quickfix"
-
-" Add the failing test name to the output of :GoTest
-let g:go_test_show_name = 1
+let g:go_highlight_function_calls = 1
+let g:go_fmt_command = "goimports"			" Run goimports when running gofmt
+let g:go_echo_command_info = 1				" Show the progress when running :GoCoverage
+let g:go_auto_type_info = 1					" Show type information
+" let g:go_auto_sameids = 0					" Highlight variable uses
+let g:go_list_type = "quickfix"				" Fix for location list when vim-go is used together with Syntastic
+let g:go_test_show_name = 1					" Add the failing test name to the output of :GoTest
+let g:go_addtags_transform = "camelcase"	" Set whether the JSON tags should be snakecase or camelcase.
 
 " gometalinter configuration
 let g:go_metalinter_command = "golangci-lint"
 let g:go_metalinter_deadline = "5s"
 let g:go_metalinter_enabled = [
-	\ 'deadcode',
-	\ 'errcheck',
-	\ 'gosimple',
-	\ 'golint',
-	\ 'ineffassign',
-	\ 'govet',
-	\ 'unused',
-	\ 'staticcheck',
-	\ 'structcheck',
-	\ 'vetshadow'
-\]
+			\ 'errcheck',
+			\ 'gosimple',
+			\ 'golint',
+			\ 'ineffassign',
+			\ 'govet',
+			\ 'unused',
+			\ 'staticcheck',
+			\ 'structcheck',
+			\ 'vetshadow'
+			\]
 
-" Set whether the JSON tags should be snakecase or camelcase.
-let g:go_addtags_transform = "snakecase"
 
+hi! def		 goCoverageCovered	  ctermfg=cyan	guibg=#485962
+hi! def		 goCoverageUncover	  ctermfg=red	guibg=#8A515B
