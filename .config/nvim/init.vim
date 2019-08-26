@@ -54,11 +54,6 @@ set shiftwidth=4					" Number of spaces to use for each step of (auto)indent<Pas
 set noexpandtab						" Use tabs, not spaces
 %retab!								" Retabulate the whole file
 
-" scroll windows
-nnoremap <C-k> <C-u>
-nnoremap <C-j> <C-d>
-nnoremap <C-U> <C-R>
-
 nnoremap <C-b> :NERDTreeToggle<cr>
 
 iabbrev iferr if err!= nil {<cr>}<esc>O
@@ -78,7 +73,8 @@ set number relativenumber
 :augroup END
 
 " Autoclose
-" inoremap { {}<Left>
+inoremap { {}<Left>
+inoremap [[ []
 inoremap ` ``<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
