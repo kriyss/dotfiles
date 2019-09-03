@@ -8,14 +8,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 Plug 'dense-analysis/ale'
+
 " Language support
 Plug 'fatih/vim-go',					{ 'do': ':GoUpdateBinaries' }	" Go support
 Plug 'deoplete-plugins/deoplete-go',	{ 'do': 'make' }				" Asynchronous GO completion
 
-Plug 'blb78/nord-vim'
-Plug 'blueyed/vim-diminactive'
+Plug 'blb78/nord-vim'								" color sheme
+Plug 'blueyed/vim-diminactive'						" disable unactive pane
+Plug 'https://github.com/tpope/vim-fugitive.git'	" Support for git
 
 call plug#end()
 
@@ -40,11 +41,11 @@ set noswapfile					  " disable swapfile usage
 set nowrap
 set noerrorbells				  " No bells!
 set novisualbell				  " I said, no bells!
-" set number						  " show number ruler
 set ruler
 set formatoptions=tcqronj		  " set vims text formatting options
 set title						  " let vim set the terminal title
 set updatetime=100				  " redraw the status bar often
+set number relativenumber
 
 
 " File Format
@@ -55,10 +56,9 @@ set noexpandtab						" Use tabs, not spaces
 %retab!								" Retabulate the whole file
 
 nnoremap <C-b> :NERDTreeToggle<cr>
+let g:NERDTreeWinPos = "right"
 
 iabbrev iferr if err!= nil {<cr>}<esc>O
-
-set number relativenumber
 
 :augroup numbertoggle
 :  autocmd!
@@ -72,21 +72,17 @@ set number relativenumber
 :  autocmd InsertLeave * highlight LineNr ctermbg=black		guifg=#4C566A
 :augroup END
 
-" Autoclose
-inoremap { {}<Left>
-inoremap [[ []
-inoremap ` ``<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-
 " Allow vim to set a custom font or color for a word
 syntax enable
 
 " Set the leader button
 let mapleader = ','
-
+nnoremap ; :
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>m :Marks<cr>
+
+" Center the screen quickly
+nnoremap <space> zz
 
 " Autosave buffers before leaving them
 autocmd BufLeave * silent! :wa
@@ -94,8 +90,6 @@ autocmd BufLeave * silent! :wa
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Center the screen quickly
-nnoremap <space> zz
 
 
 "----------------------------------------------
@@ -140,6 +134,11 @@ map <leader>c :nohlsearch<cr>
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" Next and previous error on quicklist
+nnoremap <leader>o :lopen<cr>
+nnoremap <leader>n :lnext<cr>zz
+nnoremap <leader>p :lprevious<cr>zz
+
 "----------------------------------------------
 " Splits
 "----------------------------------------------
@@ -158,18 +157,16 @@ nnoremap <C-l> <C-w>l
 " Closing splits
 nnoremap <leader>q :close<cr>
 
-let g:NERDTreeWinPos = "right"
 
 "----------------------------------------------
 " Plugin: junegunn/fzf.vim
 "----------------------------------------------
 let g:fzf_layout = { 'down': '~30%' }
-nnoremap <C-S-f> :FZF<cr>
-
-
+nnoremap <C-f> :FZF<cr>
 "----------------------------------------------
 " Plugin: Shougo/deoplete.nvim
 "----------------------------------------------
+
 if has('nvim')
 	" Enable deoplete on startup
 	let g:deoplete#enable_at_startup = 1
@@ -186,6 +183,7 @@ endfunction
 
 let g:deoplete#sources#go#gocode_binary = '/home/kriyss/go/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['var', 'func', 'type', 'package', 'const']
+
 "----------------------------------------------
 " Plugin: vim-airline/vim-airline
 "----------------------------------------------
@@ -201,7 +199,6 @@ let g:airline_powerline_fonts = 1
 
 map <C-s> :wa<cr>  " Save all on Ctrl-s
 
-nnoremap <silent> <C-R> :Rg <C-R><C-W><CR>
 
 "----------------------------------------------
 " Language: Golang
@@ -228,8 +225,6 @@ au FileType go nmap <leader>gDv	<Plug>(go-doc-vertical)
 au FileType go nmap <leader>gi :GoImplements<cr>
 au FileType go nmap <leader>gr :GoReferrers<cr>
 au FileType go nmap <leader>gC :GoCallees<cr>
-
-" au FileType go autocmd BufLeave * <Plug>(go-coverage-toogle)
 
 
 " Set gopath and gobin
