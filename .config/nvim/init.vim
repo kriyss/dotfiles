@@ -55,10 +55,12 @@ set shiftwidth=4					" Number of spaces to use for each step of (auto)indent<Pas
 set noexpandtab						" Use tabs, not spaces
 %retab!								" Retabulate the whole file
 
-nnoremap <C-b> :NERDTreeToggle<cr>
 let g:NERDTreeWinPos = "right"
 
 iabbrev iferr if err!= nil {<cr>}<esc>O
+iabbrev ;= :=
+
+
 
 :augroup numbertoggle
 :  autocmd!
@@ -78,8 +80,14 @@ syntax enable
 " Set the leader button
 let mapleader = ','
 nnoremap ; :
-nnoremap <leader>b :Buffers<cr>
+nnoremap <C-b> :Buffers<cr>
 nnoremap <leader>m :Marks<cr>
+nnoremap <leader>b :NERDTreeToggle<cr>
+
+vnoremap <leader>e ctmp<esc>Otmp:=<esc>p
+" vnoremap <leader>ev ctmp<esc>Otmp:=<esc>p:%s/tmp//g<left><left>
+nnoremap <leader>r viw"hy:%s/<C-r>h//g<left><left>
+nnoremap <leader>rc viw"hy:%s/<C-r>h//gc<left><left><left>
 
 " Center the screen quickly
 nnoremap <space> zz
@@ -260,18 +268,6 @@ let g:go_addtags_transform = "camelcase"	" Set whether the JSON tags should be s
 " gometalinter configuration
 let g:go_metalinter_command = "golangci-lint"
 let g:go_metalinter_deadline = "5s"
-let g:go_metalinter_enabled = [
-			\ 'errcheck',
-			\ 'gosimple',
-			\ 'golint',
-			\ 'ineffassign',
-			\ 'govet',
-			\ 'unused',
-			\ 'staticcheck',
-			\ 'structcheck',
-			\ 'vetshadow'
-			\]
-
 
 hi! def		 goCoverageCovered	  ctermfg=cyan	guibg=#485962
 hi! def		 goCoverageUncover	  ctermfg=red	guibg=#8A515B
