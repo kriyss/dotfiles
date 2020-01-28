@@ -6,12 +6,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 
 " Language support
 Plug 'fatih/vim-go',					{ 'do': ':GoUpdateBinaries' }	" Go support
-Plug 'deoplete-plugins/deoplete-go',	{ 'do': 'make' }				" Asynchronous GO completion
 
 Plug 'blb78/nord-vim'								" color sheme
 Plug 'blueyed/vim-diminactive'						" disable unactive pane
@@ -162,27 +160,6 @@ let g:fzf_layout = { 'down': '~30%' }
 nnoremap <C-f> :FZF<cr>
 
 "----------------------------------------------
-" Plugin: Shougo/deoplete.nvim
-"----------------------------------------------
-
-if has('nvim')
-	" Enable deoplete on startup
-	let g:deoplete#enable_at_startup = 1
-endif
-
-" Disable deoplete when in multi cursor mode
-function! Multiple_cursors_before()
-	let b:deoplete_disable_auto_complete = 1
-endfunction
-
-function! Multiple_cursors_after()
-	let b:deoplete_disable_auto_complete = 0
-endfunction
-
-let g:deoplete#sources#go#gocode_binary = '/home/kriyss/go/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['var', 'func', 'type', 'package', 'const']
-
-"----------------------------------------------
 " Plugin: vim-airline/vim-airline
 "----------------------------------------------
 " Show status bar by default.
@@ -265,4 +242,4 @@ endfunction
 
 
 hi! def		 goCoverageCovered	  ctermfg=cyan	guibg=#485962
-hi! def		 goCoverageUncover	  ctermfg=red	guibg=#8A515B
+hi! def		 goCoverageUncover	  ctermfg=red	guibg=#7A515B
