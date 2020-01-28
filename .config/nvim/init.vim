@@ -78,7 +78,8 @@ nnoremap <leader>m :Marks<cr>
 nnoremap <leader>b :Buffers<cr>
 
 vnoremap <leader>e ctmp<esc>Otmp:=<esc>p
-" vnoremap <leader>ev ctmp<esc>Otmp:=<esc>p:%s/tmp//g<left><left>
+vnoremap <leader>ev ctmp<esc>Otmp:=<esc>p:%s/tmp//g<left><left>
+vnoremap <leader>evc ctmp<esc>Otmp:=<esc>p:%s/tmp//gc<left><left><left>
 nnoremap <leader>r viw"hy:%s/<C-r>h//g<left><left>
 nnoremap <leader>rc viw"hy:%s/<C-r>h//gc<left><left><left>
 
@@ -147,21 +148,19 @@ set splitright
 " Creating splits
 nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>h :split<cr>
+nnoremap <leader>q :close<cr>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Closing splits
-nnoremap <leader>q :close<cr>
-
-
 "----------------------------------------------
 " Plugin: junegunn/fzf.vim
 "----------------------------------------------
 let g:fzf_layout = { 'down': '~30%' }
 nnoremap <C-f> :FZF<cr>
+
 "----------------------------------------------
 " Plugin: Shougo/deoplete.nvim
 "----------------------------------------------
@@ -209,6 +208,7 @@ let g:airline_powerline_fonts = 1
 :augroup END
 
 :augroup go_binding
+	autocmd Filetype go inoremap <buffer> . .<C-x><C-o>
 	autocmd Filetype go nmap <leader>gt		:GoTest<cr>
 	autocmd Filetype go nmap <leader>gtf	:GoTestFunc<cr>
 	autocmd FileType go nmap <leader>gc		<Plug>(go-coverage-toggle)
