@@ -16,5 +16,5 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
-#export FZF_DEFAULT_OPTS=" --ansi --preview-window 'right:60%' --preview '\cat'"
+#export FZF_DEFAULT_OPTS=" --ansi --preview-window 'right:60%' --preview 'bat --theme=Nord --style=numbers --color=always {}'"
 export FZF_DEFAULT_OPTS=" --ansi"
