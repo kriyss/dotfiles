@@ -51,17 +51,16 @@ set shiftwidth=4					" Number of spaces to use for each step of (auto)indent<Pas
 set noexpandtab						" Use tabs, not spaces
 %retab!								" Retabulate the whole file
 
-
 :augroup number_toggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter	* set norelativenumber
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter	* set norelativenumber
 :augroup END
 
 :augroup number_color_toggle
-:  autocmd!
-:  autocmd InsertEnter * highlight LineNr ctermbg=green		guifg=#A3BE8C
-:  autocmd InsertLeave * highlight LineNr ctermbg=black		guifg=#4C566A
+	autocmd!
+	autocmd InsertEnter * highlight LineNr ctermbg=green		guifg=#A3BE8C
+	autocmd InsertLeave * highlight LineNr ctermbg=black		guifg=#4C566A
 :augroup END
 
 " Allow vim to set a custom font or color for a word
@@ -156,7 +155,7 @@ nnoremap <C-l> <C-w>l
 "----------------------------------------------
 " Plugin: junegunn/fzf.vim
 "----------------------------------------------
-let g:fzf_layout = { 'down': '~30%' }
+let g:fzf_layout = { 'down': '~40%' }
 nnoremap <C-f> :FZF<cr>
 
 "----------------------------------------------
@@ -176,12 +175,12 @@ let g:airline_powerline_fonts = 1
 " Language: Golang
 "----------------------------------------------
 :augroup go_abbrev
-:  au FileType go iabbrev ifer if err!= nil {<cr>}<esc>O
-:  au FileType go iabbrev ;= :=
-:  au FileType go iabbrev #t *testing.T
-:  au FileType go iabbrev #f func(){}
-:  au FileType go iabbrev #s type struct{}
-:  au FileType go iabbrev #i type interface{}
+	au FileType go iabbrev ifer if err!= nil {<cr>}<esc>O
+	au FileType go iabbrev ;= :=
+	au FileType go iabbrev #t *testing.T
+	au FileType go iabbrev #f func(){}
+	au FileType go iabbrev #s type struct{}
+	au FileType go iabbrev #i type interface{}
 :augroup END
 
 :augroup go_binding
