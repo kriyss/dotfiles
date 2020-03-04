@@ -17,7 +17,6 @@ Plug 'https://github.com/tpope/vim-fugitive.git'	" Support for git
 
 call plug#end()
 
-
 "----------------------------------------------
 " General settings
 "----------------------------------------------
@@ -237,8 +236,6 @@ let $GOBIN='/home/kriyss/go/bin'
 function! GoSetPwd()
 	let $GOPATH='/home/kriyss/go'
 endfunction
-
-
 
 hi! def		 goCoverageCovered	  ctermfg=cyan	guibg=#485962
 hi! def		 goCoverageUncover	  ctermfg=red	guibg=#7A515B
