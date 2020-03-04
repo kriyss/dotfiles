@@ -11,18 +11,18 @@ source $ZSH/oh-my-zsh.sh
 ## ============================================================================
 source $HOME/.zshrc.d/credentials.sh
 
-export PATH=$PATH:"/home/kriyss/tools"
+export PATH=$PATH:"$HOME/tools"
 export PATH=$PATH:"$HOME/.yarn/bin"
 export PATH=$PATH:"$HOME/.config/yarn/global/node_modules/.bin"
 
 ## Java
-export JDK_HOME=/home/kriyss/tools/jdk1.8/
-export JAVA_HOME=/home/kriyss/tools/jdk1.8/
-export JRE_HOME=/home/kriyss/tools/jdk1.8/jre/
+export JDK_HOME="$HOME/tools/jdk1.8/"
+export JAVA_HOME="$HOME/tools/jdk1.8/"
+export JRE_HOME="$HOME/tools/jdk1.8/jre/"
 
 ## Go
 export PATH=$PATH:"/usr/local/go/bin"
-export PATH=$PATH:"/home/kriyss/go/bin"
+export PATH=$PATH:"$HOME/go/bin"
 
 # Nvm
 export NVM_DIR="$HOME/.nvm"
