@@ -23,14 +23,14 @@ color10 = ${xrdb:color10}
 color11 = ${xrdb:color11}
 color12 = ${xrdb:color12}
 color13 = ${xrdb:color13}
-color14 = ${xrdb:color14} 
+color14 = ${xrdb:color14}
 color15 = ${xrdb:color15}
 
 [bar/parent]
 monitor=${env:MONITOR}
 padding-right = 3
 module-margin = 2
-separator = | 
+separator = |
 
 font-0 = SFNS Display:size=13;2
 font-1 = FontAwesome:size=13;2
@@ -50,14 +50,14 @@ top = true
 line-size = 2
 padding-left = 3
 
-modules-left = cpu memory battery 
-modules-center = i3 
-modules-right = volume backlight wireless-network powermenu 
+modules-left = cpu memory battery
+modules-center = i3
+modules-right = volume backlight wireless-network date powermenu
 
 [module/backlight]
 type = internal/xbacklight
 card = intel_backlight
-format =  <bar> 
+format =  <bar>
 
 bar-foreground-5 = ${colors.color15}
 bar-foreground-4 = ${colors.color7}
@@ -82,7 +82,7 @@ poll-interval = 60
 
 format-full = <ramp-capacity> <bar-capacity>
 format-discharging = <ramp-capacity> <bar-capacity>
-format-charging = <animation-charging> <bar-capacity> 
+format-charging = <animation-charging> <bar-capacity>
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -97,7 +97,7 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
-bar-capacity-indicator = 
+bar-capacity-indicator =
 bar-capacity-width = 7
 bar-capacity-foreground-0 = ${colors.color1}
 bar-capacity-foreground-1 = ${colors.color9}
@@ -126,7 +126,7 @@ label-focused = %index%  %icon%
 label-focused-foreground = ${colors.primary}
 label-focused-underline = ${colors.primary}
 label-focused-padding = 2
- 
+
 label-unfocused = %index%  %icon%
 label-unfocused-padding = 2
 label-unfocused-foreground = ${colors.foreground}
@@ -137,9 +137,9 @@ label-visible-underline = ${colors.foreground}
 label-visible-padding = 2
 
 label-urgent = %index%  %icon%
-label-urgent-foreground = ${colors.background} 
+label-urgent-foreground = ${colors.background}
 label-urgent-underline = ${colors.color1}
-label-urgent-background = ${colors.color1} 
+label-urgent-background = ${colors.color1}
 label-urgent-padding = 2
 
 ws-icon-0 = 1;
@@ -162,11 +162,11 @@ label = %title:0:50:...%
 type = internal/fs
 interval = 25
 mount-0 = /
-format-mounted =  <bar-used> 
+format-mounted =  <bar-used>
 label-mounted = %mountpoint%
 ;label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 
-bar-used-indicator = 
+bar-used-indicator =
 bar-used-width = 7
 bar-used-foreground-0 = ${colors.color2}
 bar-used-foreground-1 = ${colors.color6}
@@ -205,7 +205,7 @@ interval = 3
 format = <label> <bar-used>
 label = 
 
-bar-used-indicator = 
+bar-used-indicator =
 bar-used-width = 7
 bar-used-foreground-0=${colors.color2}
 bar-used-foreground-1=${colors.color6}
@@ -241,7 +241,7 @@ bar-volume-foreground-0=${colors.color10}
 bar-volume-empty-foreground=${colors.color0}
 
 bar-volume-width = 7
-bar-volume-indicator = 
+bar-volume-indicator =
 bar-volume-fill = ▐
 bar-volume-empty = ▐
 

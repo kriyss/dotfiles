@@ -10,6 +10,9 @@ Plug 'dense-analysis/ale'
 
 " Language support
 Plug 'fatih/vim-go',					{ 'do': ':GoUpdateBinaries' }	" Go support
+Plug 'vim-scripts/indentpython.vim'
+
+
 
 Plug 'blb78/nord-vim'								" color sheme
 Plug 'blueyed/vim-diminactive'						" disable unactive pane
@@ -24,7 +27,7 @@ set autoindent					  " take indent for new line from previous line
 set autoread					  " reload file if the file changes on the disk
 set autowrite					  " write when switching buffers
 set autowriteall				  " write on :quit
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set completeopt-=preview		  " remove the horrendous preview window
 set cursorline					  " highlight the current line for the cursor
 set encoding=utf-8
@@ -96,7 +99,6 @@ if exists('+termguicolors')
 	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
-" colorscheme flattened_light
 
 let g:nord_italic = 1
 let g:nord_underline = 1
@@ -169,6 +171,19 @@ let g:airline#extensions#tabline#show_tabs = 0
 
 " Enable powerline fonts.
 let g:airline_powerline_fonts = 1
+
+"----------------------------------------------
+" Language: Python
+"----------------------------------------------
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 "----------------------------------------------
 " Language: Golang

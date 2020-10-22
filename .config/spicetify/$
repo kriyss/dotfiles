@@ -1,0 +1,18 @@
+[Base]
+main_fg       = ${xrdb:color14}
+secondary_fg  = ${xrdb:foreground}
+main_bg       = ${xrdb:background}
+
+sidebar_and_player_bg=${xrbd:color0}
+cover_overlay_and_shadow=${xrbd:color0}
+indicator_fg_and_button_bg=${xrbd:color6}
+pressing_fg=${xrbd:color2}
+slider_bg=${xrbd:background}
+#sidebar_indicator_and_hover_button_bg=${xrbd:}
+#scrollbar_fg_and_selected_row_bg=${xrbd:}
+#pressing_button_fg=${xrbd:}
+#pressing_button_bg=${xrbd:}
+#selected_button=${xrbd:}
+#miscellaneous_bg=${xrbd:}
+#miscellaneous_hover_bg=${xrbd:}
+#preserve_1=${xrbd:}
